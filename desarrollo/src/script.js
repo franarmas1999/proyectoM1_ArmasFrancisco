@@ -1,10 +1,14 @@
-// console.log("Hola JS esta OK"); con esto me doy cuenta que esta todo OK
-
  //MEMORIA AL INICIAR, VA A IR CAMBIANDO 
-const seccionPaleta = document.querySelector(".seccion-paleta");
 let cantidad = 6;
 let formato = "hsl";
 let paleta = [];
+
+//* SELECCION DE ELEMENTOS JS
+const seccionPaleta = document.querySelector(".seccion-paleta");
+const botonPrincipal = document.querySelector(".boton-principal");
+const botonesCantidad = document.querySelectorAll("#seccion-cantidad .boton-seleccion");
+const botonesFormato = document.querySelectorAll("#seccion-formato .boton-seleccion");
+const alertaCopiado = document.querySelector("#alertaCopiado")
 
 
 //* FUNCIONES COLORES ALEATORIOS
@@ -38,6 +42,15 @@ function dibujarPaleta() {
     html += `<div class="seccion-paleta--color" style="background-color:${colorHsl}">${codigo}</div>`;
   }
   seccionPaleta.innerHTML = html;
+
+  const coloresCreados = document.querySelectorAll(".seccion-paleta--color") //TODO: EVENTO PARA COPIAR EL CODIGO COLOR
+  coloresCreados.forEach(color =>{
+    color.addEventListener("click", function () {
+      navigator.clipboard.writeText(color.textContent);
+      mostrarAlerta();
+    });
+  }
+  )
 }
 
 //*Funcion que permite reiniciar paleta, y vuelve a dibujar
@@ -49,15 +62,14 @@ function generarPaleta() {
   dibujarPaleta();
 }
 
-//*BOTON PRINCIPAL EVENTO
-const botonPrincipal = document.querySelector(".boton-principal");
+//*PALETA INICIAL, se crea con los datos 
+generarPaleta()
 
+//*BOTON PRINCIPAL EVENTO
 botonPrincipal.addEventListener("click", generarPaleta);
 
-//*BOTONES CANTIDAD Y FORMATO EVENTOS
-const botonesCantidad = document.querySelectorAll("#seccion-cantidad .boton-seleccion");
-const botonesFormato = document.querySelectorAll("#seccion-formato .boton-seleccion");
-
+//*BOTON CANTIDAD Y FORMATO EVENTOS
+//* funcion que actualiza la cantidad de colores
 botonesCantidad.forEach(boton =>{
   boton.addEventListener("click", function () {
 
@@ -75,6 +87,7 @@ botonesCantidad.forEach(boton =>{
   })
 })
 
+//* funcion que cambia el formato/codigo de los colores
 botonesFormato.forEach(function (boton) {
   boton.addEventListener("click", function () {
     botonesFormato.forEach(function (b) {
@@ -85,3 +98,12 @@ botonesFormato.forEach(function (boton) {
     dibujarPaleta();
   });
 });
+
+//*FUNCION MICROFEEDBACK / COPIADO AL PORTAPAPELES
+function mostrarAlerta() {
+  alertaCopiado.classList.add("visible")
+  setTimeout(function () {
+    alertaCopiado.classList.remove("visible")
+  },1000);
+}
+
