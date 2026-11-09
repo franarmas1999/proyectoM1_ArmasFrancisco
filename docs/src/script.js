@@ -13,7 +13,7 @@ const alertaCopiado = document.querySelector("#alertaCopiado")
 
 //* FUNCIONES COLORES ALEATORIOS
 function colorAleatorioHsl() {
-  return `hsl(${Math.floor(Math.random() * 360)}, 75%, 50%)`;
+  return `hsl(${Math.floor(Math.random() * 360)}, 75%, 40%)`;
 }
 
 //*Funcion clave para pasar de formato sin reiniciar la paleta
@@ -43,7 +43,8 @@ function dibujarPaleta() {
   }
   seccionPaleta.innerHTML = html;
 
-  const coloresCreados = document.querySelectorAll(".seccion-paleta--color") //TODO: EVENTO PARA COPIAR EL CODIGO COLOR
+  //TODO: EVENTO PARA COPIAR EL CODIGO COLOR, se sirve de la funcion mostrarAlerta que esta al ultimo del doc
+  const coloresCreados = document.querySelectorAll(".seccion-paleta--color") 
   coloresCreados.forEach(color =>{
     color.addEventListener("click", function () {
       navigator.clipboard.writeText(color.textContent);
