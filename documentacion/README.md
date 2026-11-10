@@ -4,8 +4,8 @@ Generador de paletas de colores aleatorias, rápido y sin vueltas.
 
 **Proyecto M1 — Armas Francisco**
 
-🔗 **Demo:** https://franarmas1999.github.io/proyectoM1/
-📦 **Repositorio:** https://github.com/franarmas1999/proyectoM1
+🔗 **Demo:** https://franarmas1999.github.io/proyectoM1_ArmasFrancisco/
+📦 **Repositorio:** https://github.com/franarmas1999/proyectoM1_ArmasFrancisco
 
 ---
 
@@ -63,7 +63,7 @@ No necesita instalación ni dependencias.
 Cloná el repositorio y abrí `docs/index.html` con el navegador.
 
 ```bash
-git clone https://github.com/franarmas1999/proyectoM1.git
+git clone https://github.com/franarmas1999/proyectoM1_ArmasFrancisco
 ```
 
 **Opción 2 — con un servidor local (recomendado)**
@@ -78,7 +78,7 @@ además replica las condiciones reales del sitio publicado.
 El sitio está publicado con **GitHub Pages**:
 
 1. En el repositorio, ir a **Settings → Pages**.
-2. En *Source*, elegir **Deploy from a branch**.
+2. En _Source_, elegir **Deploy from a branch**.
 3. Seleccionar la rama `master` y la carpeta `/docs`.
 4. Guardar y esperar unos minutos a que termine la primera construcción.
 
@@ -164,7 +164,7 @@ reemplazar en toda la hoja de estilos.
 
 ### La carpeta se llama `docs` y no `Desarrollo`
 
-GitHub Pages, en modo *deploy from a branch*, solo puede publicar desde la raíz
+GitHub Pages, en modo _deploy from a branch_, solo puede publicar desde la raíz
 del repositorio o desde una carpeta llamada exactamente `/docs`. Para poder
 publicar la demo sin configuración adicional, el código fuente vive en `docs/`.
 
